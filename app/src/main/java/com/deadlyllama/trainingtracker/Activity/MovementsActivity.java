@@ -1,8 +1,12 @@
-package com.deadlyllama.trainingtracker;
+package com.deadlyllama.trainingtracker.Activity;
 
 import android.content.Intent;
 import android.os.Bundle;
 
+import com.deadlyllama.trainingtracker.Entity.Movement;
+import com.deadlyllama.trainingtracker.Adapter.MovementAdapter;
+import com.deadlyllama.trainingtracker.ViewModel.MovementViewModel;
+import com.deadlyllama.trainingtracker.R;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import androidx.appcompat.app.AppCompatActivity;

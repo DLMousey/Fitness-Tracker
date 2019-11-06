@@ -1,4 +1,4 @@
-package com.deadlyllama.trainingtracker;
+package com.deadlyllama.trainingtracker.Adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -9,6 +9,9 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.deadlyllama.trainingtracker.Entity.Session;
+import com.deadlyllama.trainingtracker.R;
+
 import java.util.List;
 
 public class SessionAdapter extends RecyclerView.Adapter<SessionAdapter.SessionViewHolder> {
@@ -17,7 +20,7 @@ public class SessionAdapter extends RecyclerView.Adapter<SessionAdapter.SessionV
     private List<Session> sessions;
     private SessionViewHolder activeViewHolder;
 
-    SessionAdapter(Context context) {
+    public SessionAdapter(Context context) {
         inflater = LayoutInflater.from(context);
     }
 
@@ -39,7 +42,7 @@ public class SessionAdapter extends RecyclerView.Adapter<SessionAdapter.SessionV
         }
     }
 
-    void setSessions(List<Session> items) {
+    public void setSessions(List<Session> items) {
         sessions = items;
         notifyDataSetChanged();
     }

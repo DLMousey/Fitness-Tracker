@@ -5,7 +5,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MovementsActivity"
+    tools:context=".Activity.MovementsActivity"
     tools:showIn="@layout/activity_movements">
 
     <androidx.recyclerview.widget.RecyclerView

@@ -1,4 +1,4 @@
-package com.deadlyllama.trainingtracker;
+package com.deadlyllama.trainingtracker.Adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -9,6 +9,9 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.deadlyllama.trainingtracker.Entity.Movement;
+import com.deadlyllama.trainingtracker.R;
+
 import java.util.List;
 
 public class MovementAdapter extends RecyclerView.Adapter<MovementAdapter.MovementViewHolder> {
@@ -17,7 +20,7 @@ public class MovementAdapter extends RecyclerView.Adapter<MovementAdapter.Moveme
     private List<Movement> movements;
     private MovementViewHolder activeViewHolder;
 
-    MovementAdapter(Context context) {
+    public MovementAdapter(Context context) {
         inflater = LayoutInflater.from(context);
     }
 
@@ -45,7 +48,7 @@ public class MovementAdapter extends RecyclerView.Adapter<MovementAdapter.Moveme
         }
     }
 
-    void setMovements(List<Movement> items) {
+    public void setMovements(List<Movement> items) {
         movements = items;
         notifyDataSetChanged();
     }

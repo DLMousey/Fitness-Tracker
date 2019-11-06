@@ -1,9 +1,12 @@
-package com.deadlyllama.trainingtracker;
+package com.deadlyllama.trainingtracker.ViewModel;
 
 import android.app.Application;
 
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
+
+import com.deadlyllama.trainingtracker.Entity.Session;
+import com.deadlyllama.trainingtracker.Repository.SessionRepository;
 
 import java.util.List;
 
@@ -18,7 +21,7 @@ public class SessionViewModel extends AndroidViewModel {
         allSessions = repository.getAllSessions();
     }
 
-    LiveData<List<Session>> getAllSessions() {
+    public LiveData<List<Session>> getAllSessions() {
         return allSessions;
     }
 

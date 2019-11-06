@@ -1,4 +1,4 @@
-package com.deadlyllama.trainingtracker;
+package com.deadlyllama.trainingtracker.Activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -6,6 +6,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+
+import com.deadlyllama.trainingtracker.Entity.Movement;
+import com.deadlyllama.trainingtracker.R;
+import com.deadlyllama.trainingtracker.Repository.MovementRepository;
 
 public class MovementCreateActivity extends AppCompatActivity {
 

@@ -1,4 +1,4 @@
-package com.deadlyllama.trainingtracker;
+package com.deadlyllama.trainingtracker.Entity;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;

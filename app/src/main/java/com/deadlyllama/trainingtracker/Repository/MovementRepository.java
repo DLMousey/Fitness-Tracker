@@ -1,9 +1,13 @@
-package com.deadlyllama.trainingtracker;
+package com.deadlyllama.trainingtracker.Repository;
 
 import android.app.Application;
 import android.os.AsyncTask;
 
 import androidx.lifecycle.LiveData;
+
+import com.deadlyllama.trainingtracker.Dao.MovementDao;
+import com.deadlyllama.trainingtracker.Entity.Movement;
+import com.deadlyllama.trainingtracker.WorkoutsDatabase;
 
 import java.util.List;
 
@@ -12,13 +16,13 @@ public class MovementRepository {
     private MovementDao movementDao;
     private LiveData<List<Movement>> allMovements;
 
-    MovementRepository(Application application) {
+    public MovementRepository(Application application) {
         WorkoutsDatabase db = WorkoutsDatabase.getDatabase(application);
         movementDao = db.movementDao();
         allMovements = movementDao.getAllMovements();
     }
 
-    LiveData<List<Movement>> getAllMovements() {
+    public LiveData<List<Movement>> getAllMovements() {
         return allMovements;
     }
 

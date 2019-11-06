@@ -1,13 +1,15 @@
 package com.deadlyllama.trainingtracker;
 
 import android.content.Context;
-import android.os.AsyncTask;
 
-import androidx.annotation.NonNull;
 import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
-import androidx.sqlite.db.SupportSQLiteDatabase;
+
+import com.deadlyllama.trainingtracker.Dao.MovementDao;
+import com.deadlyllama.trainingtracker.Dao.SessionDao;
+import com.deadlyllama.trainingtracker.Entity.Movement;
+import com.deadlyllama.trainingtracker.Entity.Session;
 
 @Database(entities = {
         Session.class,

@@ -1,8 +1,12 @@
-package com.deadlyllama.trainingtracker;
+package com.deadlyllama.trainingtracker.Activity;
 
 import android.content.Intent;
 import android.os.Bundle;
 
+import com.deadlyllama.trainingtracker.R;
+import com.deadlyllama.trainingtracker.Entity.Session;
+import com.deadlyllama.trainingtracker.Adapter.SessionAdapter;
+import com.deadlyllama.trainingtracker.ViewModel.SessionViewModel;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
