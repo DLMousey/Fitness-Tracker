@@ -1,0 +1,32 @@
+package com.deadlyllama.trainingtracker;
+
+import android.app.Application;
+
+import androidx.lifecycle.AndroidViewModel;
+import androidx.lifecycle.LiveData;
+
+import java.util.List;
+
+public class MovementViewModel extends AndroidViewModel {
+
+    private MovementRepository repository;
+    private LiveData<List<Movement>> allMovements;
+
+    public MovementViewModel(Application application) {
+        super(application);
+        repository = new MovementRepository(application);
+        allMovements = repository.getAllMovements();
+    }
+
+    LiveData<List<Movement>> getAllMovements() {
+        return allMovements;
+    }
+
+    public void insert(Movement movement) {
+        repository.insert(movement);
+    }
+
+    public void delete(Movement movement) {
+        repository.delete(movement);
+    }
+}
