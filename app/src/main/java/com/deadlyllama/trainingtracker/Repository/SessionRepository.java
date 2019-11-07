@@ -10,6 +10,7 @@ import com.deadlyllama.trainingtracker.Entity.Session;
 import com.deadlyllama.trainingtracker.WorkoutsDatabase;
 
 import java.util.List;
+import java.util.concurrent.ExecutionException;
 
 public class SessionRepository {
 
@@ -24,6 +25,10 @@ public class SessionRepository {
 
     public LiveData<List<Session>> getAllSessions() {
         return allSessions;
+    }
+
+    public List<Session> getAllSessionsSync() throws ExecutionException, InterruptedException {
+        return new listAsyncTask(sessionDao).execute().get();
     }
 
     public void insert(Session session) {
@@ -77,6 +82,19 @@ public class SessionRepository {
         protected Void doInBackground(final Session... params) {
             asyncSessionDao.update(params[0]);
             return null;
+        }
+    }
+
+    private static class listAsyncTask extends AsyncTask<Void, Void, List<Session>> {
+        private SessionDao asyncSessionDao;
+
+        listAsyncTask(SessionDao dao) {
+            asyncSessionDao = dao;
+        }
+
+        @Override
+        protected List<Session> doInBackground(final Void... params) {
+            return asyncSessionDao.getAllSessionsSync();
         }
     }
 }

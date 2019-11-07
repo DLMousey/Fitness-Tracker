@@ -27,7 +27,7 @@ public class SessionAdapter extends RecyclerView.Adapter<SessionAdapter.SessionV
     @NonNull
     @Override
     public SessionViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View itemView = inflater.inflate(R.layout.recyclerview_item, parent, false);
+        View itemView = inflater.inflate(R.layout.recyclerview_session_item, parent, false);
         return new SessionViewHolder(itemView);
     }
 
@@ -37,6 +37,13 @@ public class SessionAdapter extends RecyclerView.Adapter<SessionAdapter.SessionV
 
         if (sessions != null) {
             Session current = sessions.get(position);
+            holder.createdAtTextView.setText(current.getCreatedAt());
+
+            if (current.getLocation() != null) {
+                holder.locationTextView.setText(current.getLocation());
+            } else {
+                holder.locationTextView.setText("Unknown");
+            }
         } else {
             // do stuff
         }
@@ -62,10 +69,12 @@ public class SessionAdapter extends RecyclerView.Adapter<SessionAdapter.SessionV
 
     class SessionViewHolder extends RecyclerView.ViewHolder {
         private final TextView createdAtTextView;
+        private final TextView locationTextView;
 
         private SessionViewHolder(View itemView) {
             super(itemView);
             createdAtTextView = itemView.findViewById(R.id.created_at_textView);
+            locationTextView = itemView.findViewById(R.id.session_location_textView);
         }
     }
 }

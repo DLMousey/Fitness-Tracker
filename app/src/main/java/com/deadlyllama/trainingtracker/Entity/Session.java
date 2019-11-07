@@ -18,6 +18,9 @@ public class Session implements Serializable {
     @ColumnInfo(name="id")
     private Long id;
 
+    @ColumnInfo(name="location")
+    private String location;
+
     @ColumnInfo(name="createdAt")
     private String createdAt;
 
@@ -33,12 +36,25 @@ public class Session implements Serializable {
         this.createdAt = new Date().toString();
     }
 
+    public Session(String location) {
+        this.location = location;
+        this.createdAt = new Date().toString();
+    }
+
     public void setId(Long id) {
         this.id = id;
     }
 
     public Long getId() {
         return this.id;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
+    }
+
+    public String getLocation() {
+        return this.location;
     }
 
     public void setCreatedAt(String createdAt) {

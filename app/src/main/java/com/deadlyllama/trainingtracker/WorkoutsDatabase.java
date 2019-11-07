@@ -14,7 +14,7 @@ import com.deadlyllama.trainingtracker.Entity.Session;
 @Database(entities = {
         Session.class,
         Movement.class
-}, version = 4, exportSchema = false)
+}, version = 6, exportSchema = false)
 public abstract class WorkoutsDatabase extends RoomDatabase {
 
     public abstract SessionDao sessionDao();

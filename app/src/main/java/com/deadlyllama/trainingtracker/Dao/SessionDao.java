@@ -15,7 +15,7 @@ import java.util.List;
 public interface SessionDao {
 
     @Insert
-    void insert(Session session);
+    Long insert(Session session);
 
     @Query("DELETE FROM session_table")
     void deleteAll();
@@ -25,6 +25,9 @@ public interface SessionDao {
 
     @Query("SELECT * FROM session_table ORDER BY createdAt DESC")
     LiveData<List<Session>> getAllSessions();
+
+    @Query("SELECT * FROM session_table ORDER BY createdAt DESC")
+    List<Session> getAllSessionsSync();
 
     @Update
     void update(Session session);
