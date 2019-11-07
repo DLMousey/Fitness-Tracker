@@ -47,14 +47,6 @@ public class MovementCreateActivity extends AppCompatActivity {
         setsInput = findViewById(R.id.input_sets);
         sessionInput = findViewById(R.id.input_session);
 
-//        LiveData<List<Session>> sessionsCollection = sessionRepository.getAllSessions();
-//        sessionsCollection.observe(this, new Observer<List<Session>>() {
-//            @Override
-//            public void onChanged(List<Session> sessionsItems) {
-//                sessions = sessionsItems;
-//            }
-//        });
-
         try {
             sessions = sessionRepository.getAllSessionsSync();
         } catch (ExecutionException e) {
