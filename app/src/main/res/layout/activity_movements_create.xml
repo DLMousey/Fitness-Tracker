@@ -49,81 +49,21 @@
         app:layout_constraintTop_toBottomOf="@+id/label_movement_description" />
 
     <TextView
-        android:id="@+id/label_weight"
+        android:id="@+id/label_movement_muscle_group"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:text="Weight (KG)"
+        android:text="Muscle Group"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/input_movement_description" />
-    <EditText
-        android:id="@+id/input_weight"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="number"
-        android:hint="25"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/label_weight" />
-
-    <TextView
-        android:id="@+id/label_reps"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="Reps"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/input_weight" />
-    <EditText
-        android:id="@+id/input_reps"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="number"
-        android:hint="10"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/label_reps" />
-
-    <TextView
-        android:id="@+id/label_sets"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="Sets"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/input_reps" />
-    <EditText
-        android:id="@+id/input_sets"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="5"
-        android:inputType="number"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/label_sets" />
-
-    <TextView
-        android:id="@+id/label_session"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="Session"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/input_sets" />
     <Spinner
-        android:id="@+id/input_session"
+        android:id="@+id/input_movement_muscle_group"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/label_session" />
+        app:layout_constraintTop_toBottomOf="@+id/label_movement_muscle_group" />
 
     <Button
         android:id="@+id/button_submit"
@@ -134,7 +74,7 @@
         android:onClick="saveMovement"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/input_session" />
+        app:layout_constraintTop_toBottomOf="@+id/input_movement_muscle_group" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -26,6 +26,10 @@ public class MovementRepository {
         return allMovements;
     }
 
+    public LiveData<List<Movement>> getMovementsByMuscleGroup(String muscleGroup) {
+        return movementDao.getMovementsByMuscleGroup(muscleGroup);
+    }
+
     public void insert(Movement movement) {
         new insertAsyncTask(movementDao).execute(movement);
     }

@@ -1,18 +1,131 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView  xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context=".Activity.MovementsActivity"
-    tools:showIn="@layout/activity_movements">
+    android:padding="16dp">
+<!--        <androidx.constraintlayout.widget.ConstraintLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            app:layout_behavior="@string/appbar_scrolling_view_behavior"-->
+<!--            tools:context=".Activity.MovementsActivity"-->
+<!--            tools:showIn="@layout/activity_movements"-->
+<!--            android:layout_marginTop="40dp">-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+                <TextView
+                    android:id="@+id/movements_shoulders_label"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="SHOULDERS"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/movements_shoulders_recyclerview"
+                    android:layout_width="379dp"
+                    android:layout_height="0dp"
+                    android:layout_margin="16dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="16dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/movements_shoulders_label"
+                    tools:listitem="@layout/recyclerview_movement_item" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/movements_recyclerview"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_margin="16dp"
-        tools:listitem="@layout/recyclerview_movement_item" />
+                <TextView
+                    android:id="@+id/movements_arms_label"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="ARMS"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/movements_shoulders_recyclerview" />
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/movements_arms_recyclerview"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="16dp"
+                    tools:listitem="@layout/recyclerview_movement_item"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/movements_shoulders_recyclerview" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+                <TextView
+                    android:id="@+id/movements_chest_label"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="CHEST"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/movements_arms_recyclerview"/>
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/movements_chest_recyclerview"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="16dp"
+                    tools:listitem="@layout/recyclerview_movement_item"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/movements_chest_label"/>
+
+                <TextView
+                    android:id="@+id/movements_back_label"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="BACK"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/movements_chest_recyclerview"/>
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/movements_back_recyclerview"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="16dp"
+                    tools:listitem="@layout/recyclerview_movement_item"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/movements_back_label" />
+
+                <TextView
+                    android:id="@+id/movements_core_label"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="CORE"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/movements_back_recyclerview" />
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/movements_core_recyclerview"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="16dp"
+                    tools:listitem="@layout/recyclerview_movement_item"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/movements_core_label" />
+
+                <TextView
+                    android:id="@+id/movements_legs_label"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="LEGS"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/movements_core_recyclerview"/>
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/movements_legs_recyclerview"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="16dp"
+                    tools:listitem="@layout/recyclerview_movement_item"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/movements_legs_label" />
+        </LinearLayout>
+
+<!--        </androidx.constraintlayout.widget.ConstraintLayout>-->
+</ScrollView>

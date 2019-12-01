@@ -25,6 +25,10 @@ public class MovementViewModel extends AndroidViewModel {
         return allMovements;
     }
 
+    public LiveData<List<Movement>> getMovementsByMuscleGroup(String muscleGroup) {
+        return repository.getMovementsByMuscleGroup(muscleGroup);
+    }
+
     public void insert(Movement movement) {
         repository.insert(movement);
     }

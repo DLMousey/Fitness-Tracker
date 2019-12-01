@@ -17,7 +17,6 @@ import com.deadlyllama.trainingtracker.R;
 import com.deadlyllama.trainingtracker.Repository.MovementRepository;
 import com.deadlyllama.trainingtracker.Repository.SessionRepository;
 
-import java.util.HashMap;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
 
@@ -30,10 +29,7 @@ public class MovementCreateActivity extends AppCompatActivity {
 
     private EditText nameInput;
     private EditText descriptionInput;
-    private EditText weightInput;
-    private EditText repsInput;
-    private EditText setsInput;
-    private Spinner sessionInput;
+    private Spinner muscleGroupInput;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,34 +38,22 @@ public class MovementCreateActivity extends AppCompatActivity {
 
         nameInput = findViewById(R.id.input_movement_name);
         descriptionInput = findViewById(R.id.input_movement_description);
-        weightInput = findViewById(R.id.input_weight);
-        repsInput = findViewById(R.id.input_reps);
-        setsInput = findViewById(R.id.input_sets);
-        sessionInput = findViewById(R.id.input_session);
+        muscleGroupInput = findViewById(R.id.input_movement_muscle_group);
 
         try {
             sessions = sessionRepository.getAllSessionsSync();
-        } catch (ExecutionException e) {
-            e.printStackTrace();
-        } catch (InterruptedException e) {
+        } catch (ExecutionException | InterruptedException e) {
             e.printStackTrace();
         }
 
-        String[] spinnerItems = new String[sessions.size()];
-        HashMap<Long, String> spinnerMap = new HashMap<Long, String>();
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(
+                this,
+                R.array.muscle_group_array,
+                android.R.layout.simple_spinner_item
+        );
 
-        for (int i = 0; i < sessions.size(); i++) {
-            Session currentSession = sessions.get(i);
-            spinnerMap.put(
-                    currentSession.getId(),
-                    currentSession.getLocation() + " - " + currentSession.getCreatedAt()
-            );
-            spinnerItems[i] = currentSession.getLocation() + " - " + currentSession.getCreatedAt();
-        }
-
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, spinnerItems);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        sessionInput.setAdapter(adapter);
+        muscleGroupInput.setAdapter(adapter);
     }
 
     public void saveMovement(View view) {
@@ -77,12 +61,9 @@ public class MovementCreateActivity extends AppCompatActivity {
         String description = (!descriptionInput.getText().toString().equals("")) ?
                 descriptionInput.getText().toString() :
                 "No Description Provided";
-        Double weight = Double.parseDouble(weightInput.getText().toString());
-        Integer reps = Integer.parseInt(repsInput.getText().toString(), 10);
-        Integer sets = Integer.parseInt(setsInput.getText().toString(), 10);
-        Long sessionId = sessionInput.getSelectedItemId();
+        String muscleGroup = muscleGroupInput.getSelectedItem().toString();
 
-        Movement movement = new Movement(name, description, reps, sets, weight, sessionId);
+        Movement movement = new Movement(name, description, muscleGroup);
         movementRepository.insert(movement);
 
         Intent intent = new Intent(this, MovementsActivity.class);

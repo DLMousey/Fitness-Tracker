@@ -3,7 +3,6 @@ package com.deadlyllama.trainingtracker.Entity;
 import androidx.annotation.Nullable;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
-import androidx.room.ForeignKey;
 import androidx.room.PrimaryKey;
 
 @Entity(tableName = "movement_table")
@@ -20,36 +19,17 @@ public class Movement {
     @ColumnInfo(name="description")
     private String description;
 
-    @ColumnInfo(name="reps")
-    private Integer reps;
-
-    @ColumnInfo(name="sets")
-    private Integer sets;
-
-    @ColumnInfo(name="weight")
-    private Double weight;
-
-    @ForeignKey(entity = Session.class,
-            parentColumns = "id",
-            childColumns = "session_id",
-            onDelete = ForeignKey.NO_ACTION)
-    @ColumnInfo(name="session_id")
-    private Long sessionId;
+    @ColumnInfo(name="muscle_group")
+    private String muscleGroup;
 
     public Movement(
             String name,
             String description,
-            Integer reps,
-            Integer sets,
-            Double weight,
-            Long sessionId
+            String muscleGroup
     ) {
         this.name = name;
         this.description = description;
-        this.reps = reps;
-        this.sets = sets;
-        this.weight = weight;
-        this.sessionId = sessionId;
+        this.muscleGroup = muscleGroup;
     }
 
     public void setId(Long id) {
@@ -76,36 +56,12 @@ public class Movement {
         return this.description;
     }
 
-    public void setReps(Integer reps) {
-        this.reps = reps;
+    public void setMuscleGroup(String muscleGroup) {
+        this.muscleGroup = muscleGroup;
     }
 
-    public Integer getReps() {
-        return this.reps;
-    }
-
-    public void setSets(Integer sets) {
-        this.sets = sets;
-    }
-
-    public Integer getSets() {
-        return this.sets;
-    }
-
-    public void setWeight(Double weight) {
-        this.weight = weight;
-    }
-
-    public Double getWeight() {
-        return this.weight;
-    }
-
-    public void setSessionId(Long sessionId) {
-        this.sessionId = sessionId;
-    }
-
-    public Long getSessionId() {
-        return this.sessionId;
+    public String getMuscleGroup() {
+        return this.muscleGroup;
     }
 
 }

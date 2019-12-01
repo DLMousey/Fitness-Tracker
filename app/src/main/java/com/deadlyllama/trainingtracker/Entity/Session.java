@@ -73,7 +73,7 @@ public class Session implements Serializable {
         return this.updatedAt;
     }
 
-//    public void setMovements(List<Movement> movements) {
+//    public void setAllMovements(List<Movement> movements) {
 //        this.movements = movements;
 //    }
 //

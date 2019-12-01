@@ -23,8 +23,11 @@ public interface MovementDao {
     @Delete
     void delete(Movement movement);
 
-    @Query("SELECT * FROM movement_table ORDER BY reps DESC")
+    @Query("SELECT * FROM movement_table")
     LiveData<List<Movement>> getAllMovements();
+
+    @Query("SELECT * FROM movement_table WHERE muscle_group = :muscleGroup")
+    LiveData<List<Movement>> getMovementsByMuscleGroup(String muscleGroup);
 
     @Update
     void update(Movement movement);

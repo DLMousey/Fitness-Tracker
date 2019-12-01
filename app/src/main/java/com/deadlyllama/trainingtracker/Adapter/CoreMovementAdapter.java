@@ -14,68 +14,62 @@ import com.deadlyllama.trainingtracker.R;
 
 import java.util.List;
 
-public class MovementAdapter extends RecyclerView.Adapter<MovementAdapter.MovementViewHolder> {
+public class CoreMovementAdapter extends RecyclerView.Adapter<CoreMovementAdapter.CoreMovementViewHolder> {
 
-    protected final LayoutInflater inflater;
-    protected MovementViewHolder activeViewHolder;
+    private final LayoutInflater inflater;
 
-    /** Movement Lists */
-    private List<Movement> allMovements;
-    private List<Movement> shoulderMovements;
-    private List<Movement> armMovements;
-    private List<Movement> backMovements;
+    private CoreMovementViewHolder viewHolder;
     private List<Movement> coreMovements;
-    private List<Movement> legMovements;
 
-    public MovementAdapter(Context context) {
+    public CoreMovementAdapter(Context context) {
         inflater = LayoutInflater.from(context);
     }
 
     @NonNull
     @Override
-    public MovementViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public CoreMovementViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View itemView = inflater.inflate(R.layout.recyclerview_movement_item, parent, false);
-        return new MovementViewHolder(itemView);
+        return new CoreMovementViewHolder(itemView);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull MovementViewHolder holder, int position) {
-        activeViewHolder = holder;
+    public void onBindViewHolder(@NonNull CoreMovementViewHolder holder, int position) {
+        viewHolder = holder;
 
-        if (allMovements != null) {
-            Movement current = allMovements.get(position);
+        if (coreMovements != null) {
+            Movement current = coreMovements.get(position);
             holder.nameTextView.setText(current.getName());
             holder.descriptionTextView.setText(current.getDescription());
             holder.muscleGroupTextView.setText(current.getMuscleGroup());
         } else {
-            // do stuff
+            // handle no movements scenario
         }
     }
 
-    public void setAllMovements(List<Movement> items) {
-        allMovements = items;
+    public void setCoreMovements(List<Movement> items) {
+        coreMovements = items;
         notifyDataSetChanged();
     }
 
     @Override
     public int getItemCount() {
-        if(allMovements != null) {
-            return allMovements.size();
+        if (coreMovements != null) {
+            return coreMovements.size();
         } else {
             return 0;
         }
     }
 
     public Movement getMovementAtPosition(int position) {
-        return allMovements.get(position);
+        return coreMovements.get(position);
     }
 
-    class MovementViewHolder extends RecyclerView.ViewHolder {
+    class CoreMovementViewHolder extends RecyclerView.ViewHolder {
         private final TextView nameTextView;
         private final TextView descriptionTextView;
         private final TextView muscleGroupTextView;
 
-        private MovementViewHolder(View itemView) {
+        private CoreMovementViewHolder(View itemView) {
             super(itemView);
             nameTextView = itemView.findViewById(R.id.name_textView);
             descriptionTextView = itemView.findViewById(R.id.description_textView);

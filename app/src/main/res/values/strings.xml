@@ -3,4 +3,12 @@
     <string name="action_settings">Settings</string>
     <string name="title_activity_movements">MovementsActivity</string>
     <string name="title_activity_sessions">SessionsActivity</string>
+    <string-array name="muscle_group_array">
+        <item>Shoulders</item>
+        <item>Arms</item>
+        <item>Chest</item>
+        <item>Back</item>
+        <item>Core</item>
+        <item>Legs</item>
+    </string-array>
 </resources>
