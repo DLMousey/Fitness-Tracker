@@ -20,7 +20,7 @@ import com.deadlyllama.trainingtracker.Entity.SessionMovement;
         Session.class,
         Movement.class,
         SessionMovement.class
-}, version = 8, exportSchema = false)
+}, version = 9, exportSchema = false)
 public abstract class WorkoutsDatabase extends RoomDatabase {
 
     public abstract SessionDao sessionDao();
@@ -65,18 +65,18 @@ public abstract class WorkoutsDatabase extends RoomDatabase {
         protected Void doInBackground(final Void...params) {
             movementDao.deleteAll();
 
-            movementDao.insert(new Movement("Dumbell Shoulder Press", "Arnold Style", "shoulders"));
-            movementDao.insert(new Movement("Lateral Raise", "The lightest lift you'll ever do", "shoulders"));
-            movementDao.insert(new Movement("Bicep Curl", "Cheat on your girls, not on your curls", "arms"));
-            movementDao.insert(new Movement("Hammer Curl", "FOREARM PUMPS", "arms"));
-            movementDao.insert(new Movement("Bench Press", "BURN IT OUUUUUUUUUUUUUT", "chest"));
-            movementDao.insert(new Movement("Incline Dumbbell Press", "Because you're a freak of nature, you're STRONGER on incline", "chest"));
-            movementDao.insert(new Movement("Lat Pull", "You didn't see me hiding those back there eh?", "back"));
-            movementDao.insert(new Movement("Deadlift", "Did i hit that lift?", "back"));
-            movementDao.insert(new Movement("Crunches", "Do them till you poop", "core"));
-            movementDao.insert(new Movement("Plank", "Difficult, but not impressive", "core"));
-            movementDao.insert(new Movement("Leg Extension", "OH GOD IT HURTS PLEASE MAKE IT STOP", "legs"));
-            movementDao.insert(new Movement("Leg Curl", "OH GOD IT HURTS EVEN MORE GOING THE OTHER WAY", "legs"));
+            movementDao.insert(new Movement("Dumbell Shoulder Press", "Arnold Style", "shoulders", "deadlift"));
+            movementDao.insert(new Movement("Lateral Raise", "The lightest lift you'll ever do", "shoulders", "deadlift"));
+            movementDao.insert(new Movement("Bicep Curl", "Cheat on your girls, not on your curls", "arms", "bicep_curl"));
+            movementDao.insert(new Movement("Hammer Curl", "FOREARM PUMPS", "arms", "deadlift"));
+            movementDao.insert(new Movement("Bench Press", "BURN IT OUUUUUUUUUUUUUT", "chest", "bench_press"));
+            movementDao.insert(new Movement("Incline Dumbbell Press", "Because you're a freak of nature, you're STRONGER on incline", "chest", "deadlift"));
+            movementDao.insert(new Movement("Lat Pull", "You didn't see me hiding those back there eh?", "back", "deadlift"));
+            movementDao.insert(new Movement("Deadlift", "Did i hit that lift?", "back", "deadlift"));
+            movementDao.insert(new Movement("Crunches", "Do them till you poop", "core", "deadlift"));
+            movementDao.insert(new Movement("Plank", "Difficult, but not impressive", "core", "deadlift"));
+            movementDao.insert(new Movement("Leg Extension", "OH GOD IT HURTS PLEASE MAKE IT STOP", "legs", "deadlift"));
+            movementDao.insert(new Movement("Leg Curl", "OH GOD IT HURTS EVEN MORE GOING THE OTHER WAY", "legs", "deadlift"));
 
             return null;
         }

@@ -22,14 +22,19 @@ public class Movement {
     @ColumnInfo(name="muscle_group")
     private String muscleGroup;
 
+    @ColumnInfo(name="image_path")
+    private String imagePath;
+
     public Movement(
             String name,
             String description,
-            String muscleGroup
+            String muscleGroup,
+            String imagePath
     ) {
         this.name = name;
         this.description = description;
         this.muscleGroup = muscleGroup;
+        this.imagePath = imagePath;
     }
 
     public void setId(Long id) {
@@ -62,6 +67,14 @@ public class Movement {
 
     public String getMuscleGroup() {
         return this.muscleGroup;
+    }
+
+    public void setImagePath(String imagePath) {
+        this.imagePath = imagePath;
+    }
+
+    public String getImagePath() {
+        return this.imagePath;
     }
 
 }

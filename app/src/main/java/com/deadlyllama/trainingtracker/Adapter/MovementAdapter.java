@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -47,6 +48,13 @@ public class MovementAdapter extends RecyclerView.Adapter<MovementAdapter.Moveme
             holder.nameTextView.setText(current.getName());
             holder.descriptionTextView.setText(current.getDescription());
             holder.muscleGroupTextView.setText(current.getMuscleGroup());
+            int drawableRes = holder.itemView.getResources().getIdentifier(
+                    current.getImagePath(),
+                    "drawable",
+                    holder.itemView.getContext().getPackageName()
+            );
+
+            holder.imageView.setImageResource(drawableRes);
         } else {
             // do stuff
         }
@@ -74,12 +82,14 @@ public class MovementAdapter extends RecyclerView.Adapter<MovementAdapter.Moveme
         private final TextView nameTextView;
         private final TextView descriptionTextView;
         private final TextView muscleGroupTextView;
+        private final ImageView imageView;
 
         private MovementViewHolder(View itemView) {
             super(itemView);
             nameTextView = itemView.findViewById(R.id.name_textView);
             descriptionTextView = itemView.findViewById(R.id.description_textView);
             muscleGroupTextView = itemView.findViewById(R.id.muscleGroup_textView);
+            imageView = itemView.findViewById(R.id.movement_imageview);
         }
     }
 }

@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Spinner;
 
 import com.deadlyllama.trainingtracker.Entity.Movement;
@@ -30,6 +31,7 @@ public class MovementCreateActivity extends AppCompatActivity {
     private EditText nameInput;
     private EditText descriptionInput;
     private Spinner muscleGroupInput;
+    private ImageView imageView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +41,7 @@ public class MovementCreateActivity extends AppCompatActivity {
         nameInput = findViewById(R.id.input_movement_name);
         descriptionInput = findViewById(R.id.input_movement_description);
         muscleGroupInput = findViewById(R.id.input_movement_muscle_group);
+        imageView = findViewById(R.id.movement_imageview);
 
         try {
             sessions = sessionRepository.getAllSessionsSync();
@@ -62,8 +65,9 @@ public class MovementCreateActivity extends AppCompatActivity {
                 descriptionInput.getText().toString() :
                 "No Description Provided";
         String muscleGroup = muscleGroupInput.getSelectedItem().toString();
+        String imagePath = "android.resource://com.deadlyllama.trainingtracker/" + R.drawable.deadlift;
 
-        Movement movement = new Movement(name, description, muscleGroup);
+        Movement movement = new Movement(name, description, muscleGroup, imagePath);
         movementRepository.insert(movement);
 
         Intent intent = new Intent(this, MovementsActivity.class);
